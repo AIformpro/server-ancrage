@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphique en Temps Réel</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+    <h1>Graphique en Temps Réel</h1>
+    <div id="graph"></div>
+
+    <script>
+        function updateGraph() {
+            fetch("/graph")
+                .then(response => response.json())
+                .then(data => {
+                    console.log("🟢 Mise à jour des données :", data);
+                    Plotly.react("graph", data.data, data.layout);  // Mise à jour fluide du graphique
+                })
+                .catch(error => console.error("🔴 Erreur :", error));
+        }
+
+        setInterval(updateGraph, 1000); // Rafraîchissement chaque seconde
+        updateGraph();  // Premier chargement
+    </script>
+</body>
+</html>

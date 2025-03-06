@@ -1,0 +1,26 @@
+
+# Exclure les fichiers JSON sensibles
+*.json
+
+# Exclure les fichiers multimédias lourds
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wav
+*.mp3
+*.jpeg
+*.jpg
+*.png
+
+# Exclure les fichiers temporaires et logs
+*.tmp
+*.log
+*.bak
+*.swp
+*.swo
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
